@@ -8,19 +8,23 @@
     <script src="index.js" type ="module"></script>
     <div class="app">
         <h1>FUND APP 🦊</h1>
-        <div class="container">
-            <label for="fund">ETH Amount</label>
-            <div class="funding">
-                <input id="ethAmount" placeholder="Type in your desire fund"/>
-                <button id="fundButton">Fund</button>
+            <div class="container">
+                <div class="greeting-section">
+                    <p id="greetingText">Welcome!</p>
+                </div>
+                <div class="funding">
+                    <label for="fund">ETH Amount</label>
+                    <input id="ethAmount" placeholder="Type in your desire fund"/>
+                    <button id="fundButton">Fund</button>
+                </div>
+                <div class="functions">
+                    <button id="connectButton">Connect</button>
+                    <button id="balanceButton">Get Balance</button>
+                    <button id="withdrawButton">Withdraw</button>
+                </div>
+                <div id="messageArea"></div>
             </div>
-            <div class="functions">
-                <button id="connectButton">Connect</button>
-                <button id="balanceButton">Get Balance</button>
-                <button id="withdrawButton">Withdraw</button>
-            </div>
-            <div id="messageArea"></div>
-        </div>
+        </div>     
     </div>
     <div class="wave-container">
         <div class="wave wave-1" style="background-image: url('effects/1.png');"></div>

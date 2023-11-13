@@ -10,6 +10,20 @@ fundButton.onclick = fund
 balanceButton.onclick = getBalance
 withdrawButton.onclick = withdraw
 
+const greetingText = document.getElementById("greetingText")
+const greetings = [
+    "Hello there!",
+    "Thank you for visiting!",
+    "How is your day",
+    "Welcome!",
+]
+
+function changeGreeting() {
+    const randomIndex = Math.floor(Math.random() * greetings.length)
+    greetingText.textContent = greetings[randomIndex]
+}
+setInterval(changeGreeting, 5000)
+
 function showMessage(message) {
     let delay = 2000
     document.getElementById("messageArea").innerHTML = message

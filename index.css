@@ -23,10 +23,24 @@ body {
     overflow: hidden;
 }
 
+.greeting-section {
+    position: absolute;
+    top: 30px; 
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+}
+
+.content{
+    width: 1000px; height: 1000px;
+    display: flex;
+    justify-content:space-around ;
+}
 
 .container {
     position: relative; 
-    width: 600px; height: 450px;
+    width: 550px; height: 450px;
     background-color: #1f1f1f;
     border-radius: 20px;
     display: flex;
@@ -35,11 +49,10 @@ body {
     align-items: center;
 }
 
+
 .funding {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    margin-bottom: 20px;
 }
 
 .wave-container {
@@ -89,10 +102,12 @@ button {
 }
 
 label {
+    font-size: 19px;
     font-family: "poppins";
     display: block;
-    margin: 10px 0;
     color: var(--white-color);
+    margin: 10px 10px 10px 0;
+    white-space: nowrap;
 }
 
 input {
