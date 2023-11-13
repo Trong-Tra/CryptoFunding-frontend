@@ -19,13 +19,14 @@ body {
     color: var(--white-color);
     font-size: 1.8em;
     position: relative;
+    margin: auto;
+    overflow: hidden;
 }
 
 
 .container {
     position: relative; 
-    width: 600px;
-    height: 450px;
+    width: 600px; height: 450px;
     background-color: #1f1f1f;
     border-radius: 20px;
     display: flex;
@@ -39,6 +40,38 @@ body {
     flex-direction: row;
     align-items: center;
     margin-bottom: 20px;
+}
+
+.wave-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+}
+.wave{
+    position: absolute;
+    left: 0;
+    width: 200%; height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+}
+.wave-1{
+    background-size: 50% 80%;
+    opacity: 50%;
+    animation: animate2 10s linear infinite;
+    z-index: -10;
+}
+.wave-2{
+    background-size: 50% 100%;
+    opacity: 30%;
+    animation: animate2 12s linear infinite;
+}
+.wave-3{
+    background-size: 50% 80%;
+    animation: animate3 18s linear infinite;
 }
 
 button {
@@ -88,4 +121,28 @@ input {
 
 #fundButton {
     background-color: #3498db;
+}
+
+@keyframes animate2 {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1);
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.5);
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1);
+    }
+}
+
+@keyframes animate3 {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1);
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.5);
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1);
+    }
 }
