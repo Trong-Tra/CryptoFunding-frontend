@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+:root {
+    --body-color: #0f0a06;
+    --white-color: #fff;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #373737;
+    overflow: hidden;
+}
+
+.app{
+    text-align: center;
+    font-family: "poppins";
+    color: var(--white-color);
+    font-size: 1.8em;
+    position: relative;
+}
+
+
+.container {
+    position: relative; 
+    width: 600px;
+    height: 450px;
+    background-color: #1f1f1f;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.funding {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+button {
+    font-family: "poppins";
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+label {
+    font-family: "poppins";
+    display: block;
+    margin: 10px 0;
+    color: var(--white-color);
+}
+
+input {
+    font-family: "poppins";
+    padding: 10px;
+    margin: 5px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#ethAmount {
+    width: 80%;
+}
+
+#connectButton {
+    background-color: #4285F4;
+}
+
+#balanceButton {
+    background-color: #f39c12;
+}
+
+#withdrawButton {
+    background-color: #e74c3c;
+}
+
+#fundButton {
+    background-color: #3498db;
+}
