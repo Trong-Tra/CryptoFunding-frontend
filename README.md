@@ -25,13 +25,13 @@ CryptoFunding is open-source licensed under the MIT License
 
 To get started with CryptoFunding, follow these steps:
 
-# Using the contract
+### Using the contract
 
 1. Go to the backend repository: "https://github.com/AgonyThorn/CryptoFunding.git"
 
 2. Deploy the Smart Contract: Deploy the CryptoFunding smart contract on your chosen Ethereum network.
 
-# Checking out the dApp
+### Checking out the dApp
 
 1. Go to the backend repository: "https://github.com/AgonyThorn/CryptoFunding.git"
 
