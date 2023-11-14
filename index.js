@@ -6,12 +6,14 @@ const fundButton = document.getElementById("fundButton")
 const balanceButton = document.getElementById("balanceButton")
 const withdrawButton = document.getElementById("withdrawButton")
 const getOwnerButton = document.getElementById("getOwnerButton")
+const getFunderButton = document.getElementById("getFunderButton")
 
 connectButton.onclick = connect
 fundButton.onclick = fund
 balanceButton.onclick = getBalance
 withdrawButton.onclick = withdraw
 getOwnerButton.onclick = getOwner
+getFunderButton.onclick = trackFunder
 
 const greetingText = document.getElementById("greetingText")
 const greetings = [
@@ -125,10 +127,26 @@ async function getOwner() {
         console.log(`Owner is... ${ownerAddress}`)
         showMessage("Please check your website console")
     } catch (err) {
-        window.alert("--> getContractOwner() failed^ Reason: view in console")
-        console.log("--> getContractOwner() failed^ Reason:\n", err)
-        console.log(
-            "-----------------------------------------------------------------------------------------------"
-        )
+        console.log(err)
+    }
+}
+
+async function trackFunder() {
+    const funderIndex = document.getElementById("funderIndex").value
+    const funderAddress = await getFunder(funderIndex)
+    console.log(`Funder's address: ${funderAddress}`)
+    showMessage("Please check your website console")
+}
+
+async function getFunder(funderIndex) {
+    let funderAddress = null
+    try {
+        const provider = new ethers.BrowserProvider(window.ethereum)
+        const signer = await provider.getSigner()
+        const contract = new ethers.Contract(contractAddress, abi, signer)
+        funderAddress = await contract.getFunder(funderIndex)
+        return funderAddress
+    } catch (err) {
+        console.log(err)
     }
 }
