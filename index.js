@@ -5,10 +5,13 @@ const connectButton = document.getElementById("connectButton")
 const fundButton = document.getElementById("fundButton")
 const balanceButton = document.getElementById("balanceButton")
 const withdrawButton = document.getElementById("withdrawButton")
+const getOwnerButton = document.getElementById("getOwnerButton")
+
 connectButton.onclick = connect
 fundButton.onclick = fund
 balanceButton.onclick = getBalance
 withdrawButton.onclick = withdraw
+getOwnerButton.onclick = getOwner
 
 const greetingText = document.getElementById("greetingText")
 const greetings = [
@@ -105,8 +108,27 @@ async function withdraw() {
         try {
             const transactionResponse = await contract.withdraw()
             await listenForTransactionMine(transactionResponse, provider)
+            showMessages(["Withdrawing...", "Completed"])
         } catch (error) {
             console.log(error)
         }
+    }
+}
+
+async function getOwner() {
+    let ownerAddress = null
+    try {
+        const provider = new ethers.BrowserProvider(window.ethereum)
+        const signer = await provider.getSigner()
+        const contract = new ethers.Contract(contractAddress, abi, signer)
+        ownerAddress = await contract.getOwner()
+        console.log(`Owner is... ${ownerAddress}`)
+        showMessage("Please check your website console")
+    } catch (err) {
+        window.alert("--> getContractOwner() failed^ Reason: view in console")
+        console.log("--> getContractOwner() failed^ Reason:\n", err)
+        console.log(
+            "-----------------------------------------------------------------------------------------------"
+        )
     }
 }

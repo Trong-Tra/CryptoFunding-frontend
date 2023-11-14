@@ -73,13 +73,13 @@ body {
 }
 .wave-1{
     background-size: 50% 80%;
-    opacity: 50%;
+    opacity: 30%;
     animation: animate2 10s linear infinite;
     z-index: -10;
 }
 .wave-2{
     background-size: 50% 100%;
-    opacity: 30%;
+    opacity: 50%;
     animation: animate2 12s linear infinite;
 }
 .wave-3{
@@ -102,7 +102,7 @@ button {
 }
 
 label {
-    font-size: 19px;
+    font-size: 22px;
     font-family: "poppins";
     display: block;
     color: var(--white-color);
@@ -136,6 +136,9 @@ input {
 
 #fundButton {
     background-color: #3498db;
+}
+#getOwnerButton {
+    background-color: #4285F4;
 }
 
 @keyframes animate2 {
