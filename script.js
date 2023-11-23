@@ -1,6 +1,57 @@
 import { ethers } from "https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.min.js"
 import { abi, contractAddress } from "./constants.js"
 
+document.addEventListener("DOMContentLoaded", function () {
+    var bg_image = document.getElementById("bg-image")
+    var crystal = document.getElementById("Crystal")
+    var image_4 = document.getElementById("line")
+    var light = document.getElementById("light")
+    var menu_icon = document.getElementById("menu-icon")
+    var menuOptions = document.getElementById("menu-Options")
+    var vct_1 = document.getElementById("vector1")
+    var vct_2 = document.getElementById("vector2")
+    var vct_3 = document.getElementById("vector3")
+    var vct_4 = document.getElementById("vector4")
+    var startButton = document.getElementById("get_start")
+
+    vct_1.classList.add("rotate_left")
+    vct_4.classList.add("rotate_left")
+
+    vct_2.classList.add("rotate_right")
+    vct_3.classList.add("rotate_right")
+
+    menu_icon.classList.add("float-in")
+
+    image_4.classList.add("spread")
+    bg_image.classList.add("zoom-in")
+    crystal.classList.add("zoom-out")
+
+    crystal.addEventListener("animationend", function () {
+        crystal.classList.add("glitch")
+        light.classList.add("glitch")
+        startButton.classList.add("appear")
+    })
+    setTimeout(function () {
+        crystal.classList.add("glitch")
+        light.classList.add("glitch")
+        startButton.classList.add("appear")
+    }, 1500)
+
+    menu_icon.addEventListener("click", function () {
+        if (menuOptions.style.visibility === "visible") {
+            menu_icon.classList.remove("turnCCW")
+            menu_icon.classList.toggle("turnCW")
+            menuOptions.style.visibility = "hidden"
+        } else {
+            menu_icon.classList.remove("turnCW")
+            menu_icon.classList.toggle("turnCCW")
+            setTimeout(function () {
+                menuOptions.style.visibility = "visible"
+            }, 200)
+        }
+    })
+})
+
 const connectButton = document.getElementById("connectButton")
 const fundButton = document.getElementById("fundButton")
 const balanceButton = document.getElementById("balanceButton")
@@ -14,39 +65,6 @@ balanceButton.onclick = getBalance
 withdrawButton.onclick = withdraw
 getOwnerButton.onclick = getOwner
 getFunderButton.onclick = trackFunder
-
-const greetingText = document.getElementById("greetingText")
-const greetings = [
-    "Hello there!",
-    "Thank you for visiting!",
-    "How is your day",
-    "Welcome!",
-]
-
-function changeGreeting() {
-    const randomIndex = Math.floor(Math.random() * greetings.length)
-    greetingText.textContent = greetings[randomIndex]
-}
-setInterval(changeGreeting, 5000)
-
-function showMessage(message) {
-    let delay = 2000
-    document.getElementById("messageArea").innerHTML = message
-
-    setTimeout(() => {
-        document.getElementById("messageArea").innerHTML = ""
-    }, delay)
-}
-
-function showMessages(messages, index = 0, delay = 2000) {
-    if (index < messages.length) {
-        showMessage(messages[index])
-
-        setTimeout(() => {
-            showMessages(messages, index + 1, delay)
-        }, delay)
-    }
-}
 
 async function connect() {
     if (typeof window.ethereum !== "undefined") {

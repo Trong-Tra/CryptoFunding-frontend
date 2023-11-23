@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@600&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle, transparent 0%, transparent 70%, #fefefe 70%, #909090);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    min-height: 100vh;
+    margin-top: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+}
+
+.menu{
+    position: absolute;
+    z-index: 12;
+}
+
+.menu-options {
+    z-index: 12;
+    visibility: hidden;
+    position: absolute;
+    top: 45px;
+    left: 110px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.menu-options ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0px;
+    display: flex;
+}
+.menu-options li{
+    padding: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: 'Unbounded', sans-serif;
+}
+.menu-options li a {
+    text-decoration: none;
+    color: inherit;
+}
+.menu-options li:hover{
+    transform: scale(1.2);
+}
+.menu-option.visible li{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.text{
+    z-index: 11;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+
+.Title{
+    margin-bottom: 600px;
+    z-index: 11;
+    font-size: 56px;
+    font-family: 'Unbounded', sans-serif;
+    white-space: nowrap;
+    position: absolute;
+    pointer-events: none;
+}
+.vector{
+    z-index: 5;
+    position: absolute;
+    pointer-events: none;
+}
+.body-container{
+    z-index: -7;
+    position: absolute;
+    pointer-events: none;
+}
+.footer-container {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+}
+.start {
+    z-index: 13;
+    width: 220px;
+    height: 60px;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: 'Unbounded', sans-serif;
+    white-space: nowrap;
+    cursor: pointer;
+    border: transparent;
+    border-radius: 40px;
+    box-shadow: 0px 6px 20px rgb(173, 237, 113);
+    margin-top: 170px;
+    background-color: rgb(183, 240, 84);
+    transition: box-shadow 0.3s ease-in-out, 
+    opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    opacity: 0;
+}
+.start:hover {
+    box-shadow: 0px 6px 30px rgb(173, 237, 113);
+    opacity: 0.95;
+    transform: scale(1.2);
+}
+
+.bg{
+    margin-bottom: 230px;
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+}
+.ETH{
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+}
+
+#image-3{
+    z-index: 6;
+}
+#image-3 img{
+    margin-right: 1100px;
+    margin-bottom: 66px;
+    height: 45px;
+    width: 125px;
+}
+
+#line{
+    z-index: -7;
+}
+#line img{
+    margin-left: 1400px;
+    margin-bottom: 100px;
+    height: 530px;
+    width: 3.2px;
+}
+#menu-icon{
+    z-index: 12;
+    cursor: pointer;
+    margin-right: 1300px;
+    margin-bottom: 660px;
+}
+#menu-icon img{
+    rotate: 90deg;
+    height: 40px;
+    width: 15px;
+    transition: box-shadow 0.3s ease-in-out, 
+    opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+#menu-icon img:hover{
+    transform: scale(1.4);
+}
+
+#bg-image{
+    z-index: 0;
+}
+#bg-image img{
+    height: 300px;
+    width: 880px;
+}
+
+#Crystal img{
+    height: 700px;
+    margin-bottom: 45px;
+}
+#light {
+    position: absolute;
+    left: 50%;
+    bottom:-88px;
+    transform: translateX(-50%);
+    z-index:1;
+}
+#light img{
+    height: 480px;
+    width: 480px;
+}
+#base {
+    position: absolute;
+    left: 50%;
+    bottom:-88px;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+#base img{
+    height: 480px;
+    width: 480px;
+}
+
+#vector1 img,#vector2 img,#vector3 img,#vector4 img {
+    height: 110px;
+    width: 110px;
+}
+
+#vector1 img{
+    margin-bottom: 500px;
+    margin-right: 350px;
+}
+#vector2 img{
+    margin-bottom: 500px;
+    margin-left: 600px;
+}
+#vector3 img{
+    margin-bottom: 500px;
+    margin-left: 350px;
+}
+#vector4 img{
+    margin-bottom: 500px;
+    margin-right: 600px;
+}
+
+.spread {
+    animation: SpReAd 1s forwards;
+}
+@keyframes SpReAd {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+
+.zoom-in {
+    animation: ZOOM_IN 1s forwards;
+}
+@keyframes ZOOM_IN {
+    from {
+        transform: translateY(-10%) scale(350%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+.zoom-out {
+    animation: ZOOM_OUT 1.3s forwards;
+}
+@keyframes ZOOM_OUT {
+    from {
+        transform: translateY(30%) scale(10%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+ 
+.glitch {
+    animation: Glitch 3s infinite;
+}
+@keyframes Glitch {
+    0%, 2%, 4%, 100% {
+        opacity: 0.2;
+    }
+    1%, 3% {
+        opacity: 0.6;
+    }
+    99% {
+        opacity: 0.95;
+    }
+    5% {
+        opacity: 1;
+    }
+}
+
+.rotate_left {
+    animation: RotateLeft 1.8s forwards;
+}
+@keyframes RotateLeft {
+    from {
+        transform: translateX(15%) translateY(40%) rotate(30deg);
+    }
+    to {
+        transform: translateX(0%) translateY(0%) rotate(0);
+    }
+} 
+
+.rotate_right {
+    animation: RotateRight 1.8s forwards;
+}
+@keyframes RotateRight {
+    from {
+        transform: translateX(-15%) translateY(40%) rotate(-30deg);
+    }
+    to {
+        transform: translateX(0%) translateY(0%) rotate(0);
+    }
+} 
+
+.appear {
+    animation: Appear 5s forwards;
+}
+@keyframes Appear {
+    0% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+} 
+
+.float-in {
+    animation: FltIn 1s forwards;
+}
+@keyframes FltIn {
+    from {
+        transform: translateX(-1000%);
+    }
+    to {
+        transform: translateX(0);
+    }
+} 
+
+.turnCCW {
+    animation: TurnCCW 0.5s forwards;
+}
+@keyframes TurnCCW {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(-90deg);
+    }
+}
+
+.turnCW {
+    animation: TurnCW 0.5s forwards;
+}
+@keyframes TurnCW {
+    from {
+        transform: rotate(-90deg);
+    }
+    to {
+        transform: rotate(0);
+    }
+} 

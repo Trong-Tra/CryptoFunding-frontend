@@ -2,40 +2,62 @@
 <html lang="en">
 <head>
     <title>Crypto Funding App</title>
-    <link rel="stylesheet" href="index.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-    <script src="index.js" type ="module"></script>
-    <div class="app">
-        <h1>FUND APP 🦊</h1>
-            <div class="container">
-                <div class="greeting-section">
-                    <p id="greetingText">Welcome!</p>
-                </div>
-                <div class="funding">
-                    <label for="fund">ETH Amount</label>
-                    <input id="ethAmount" placeholder="Type in your desire fund"/>
-                    <button id="fundButton">Fund</button>
-                </div>
-                <div class="functions">
-                    <button id="connectButton">Connect</button>
-                    <button id="balanceButton">Get Balance</button>
-                    <button id="withdrawButton">Withdraw</button>
-                    <button id="getOwnerButton">Get Owner</button>
-                </div>
-                <div class="funderAddress">
-                    <label for="funder_address">Funder no.</label>
-                    <input id="funderIndex" placeholder="01"/>
-                    <button id="getFunderButton">Get Address</button>
-                </div>
-                <div id="messageArea"></div>
+    <main>
+        <div class="text">
+            <div class="Title">FUND APP</div>
+            <div class="button-container">
+                <button class="start" id="get_start">Getting Started</button>
             </div>
-        </div>     
-    </div>
-    <div class="wave-container">
-        <div class="wave wave-1" style="background-image: url('effects/1.png');"></div>
-        <div class="wave wave-2" style="background-image: url('effects/2.png');"></div>
-        <div class="wave wave-3" style="background-image: url('effects/3.png');"></div>
-    </div>
+        </div>
+
+        <div class="vector" id="vector1">
+            <img src="Assets/Vector.png">
+        </div>
+        <div class="vector" id="vector2">
+            <img src="Assets/Vector-1.png">
+        </div>
+        <div class="vector" id="vector3">
+            <img src="Assets/Vector-2.png">
+        </div>
+        <div class="vector" id="vector4">
+            <img src="Assets/Vector-3.png">
+        </div>
+
+        <div class="bg" id="bg-image">
+            <img src="Assets/Group 13872.png">
+        </div>
+        <div class="ETH" id="Crystal">
+            <img src="Assets/ether-crystal.png">
+        </div>
+        <div class="body-container" id="line">
+            <img src="Assets/LINE.png">
+        </div>
+
+        <div class="menu" id="menu-icon">
+            <img src="Assets/Group 13881.png">
+        </div>
+        <div class="menu-options" id="menu-Options">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>Settings</li>
+                <li>Account</li>
+            </ul>
+        </div>
+
+        </div>
+        <div class="footer-container" id="image-3">
+            <img src="Assets/Group 13878.png">
+        </div>
+        <div class="footer-container" id="light">
+            <img src="Assets/Light.png">
+        </div>
+        <div class="footer-container" id="base">
+            <img src="Assets/Base.png">
+        </div>
+    </main>
+    <script src="script.js" type="module"></script>
 </body>
 </html>
