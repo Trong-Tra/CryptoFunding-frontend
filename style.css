@@ -45,7 +45,7 @@ main{
     display: flex;
 }
 .menu-options li{
-    padding: 10px;
+    padding: 12px;
     cursor: pointer;
     font-size: 15px;
     font-family: 'Unbounded', sans-serif;
@@ -57,7 +57,7 @@ main{
     transition: transform 0.3s ease;
 }
 .menu-options li a:hover{
-    transform: translateX(0) scale(1.2);
+    transform: translateX(0) scale(1.4);
 }
 
 .text{
