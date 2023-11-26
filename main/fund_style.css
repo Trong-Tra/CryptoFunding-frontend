@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@600&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle, transparent 0%, transparent 70%, #fefefe 70%, #909090);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

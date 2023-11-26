@@ -68,7 +68,7 @@ main{
     justify-content: center;
     height: 100vh;
     position: relative;
-    left: 610px;
+    left: 690px;
 }
 
 .Title{
@@ -122,6 +122,14 @@ main{
     opacity: 0.95;
     transform: scale(1.2);
 }
+.start a{
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+.start a:visited{
+    color: inherit;
+}
 
 .bg{
     margin-bottom: 230px;
@@ -143,7 +151,7 @@ main{
     z-index: 6;
 }
 #image-3 img{
-    margin-right: 1100px;
+    margin-right: 1250px;
     margin-bottom: 66px;
     height: 45px;
     width: 125px;
