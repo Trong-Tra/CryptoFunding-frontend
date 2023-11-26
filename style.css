@@ -94,6 +94,8 @@ main{
 }
 .footer-container {
     position: absolute;
+    left: 50%;
+    bottom:-88px;
     z-index: 1;
     pointer-events: none;
 }
@@ -183,8 +185,6 @@ main{
 }
 #light {
     position: absolute;
-    left: 50%;
-    bottom:-88px;
     transform: translateX(-50%);
     z-index:1;
 }
@@ -194,8 +194,6 @@ main{
 }
 #base {
     position: absolute;
-    left: 50%;
-    bottom:-88px;
     transform: translateX(-50%);
     z-index: 0;
 }
