@@ -356,3 +356,33 @@ main{
         transform: rotate(0);
     }
 } 
+
+.float1 {
+    animation: Float1 15s infinite;
+}
+@keyframes Float1 {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+} 
+
+.float2 {
+    animation: Float2 10s infinite;
+}
+@keyframes Float2 {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+} 

@@ -24,6 +24,20 @@ document.addEventListener("DOMContentLoaded", function () {
     vct_2.classList.add("rotate_right")
     vct_3.classList.add("rotate_right")
 
+    vct_1.addEventListener("animationend", function () {
+        vct_1.classList.add("float1")
+        vct_3.classList.add("float1")
+        vct_2.classList.add("float2")
+        vct_4.classList.add("float2")
+    })
+
+    setTimeout(function () {
+        vct_1.classList.add("float1")
+        vct_3.classList.add("float1")
+        vct_2.classList.add("float2")
+        vct_4.classList.add("float2")
+    }, 5000)
+
     menu_icon.classList.add("float-in")
 
     image_4.classList.add("spread")
