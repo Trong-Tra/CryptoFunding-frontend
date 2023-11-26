@@ -22,14 +22,16 @@ main{
 .menu{
     position: absolute;
     z-index: 12;
+    top: 45px;
+    left: 110px;
 }
 
 .menu-options {
     z-index: 12;
     visibility: hidden;
     position: absolute;
-    top: 45px;
-    left: 110px;
+    top: 50px;
+    left: 200px;
     background-color: transparent;
     display: flex;
     flex-direction: row;
@@ -51,13 +53,11 @@ main{
 .menu-options li a {
     text-decoration: none;
     color: inherit;
+    display: block;
+    transition: transform 0.3s ease;
 }
-.menu-options li:hover{
-    transform: scale(1.2);
-}
-.menu-option.visible li{
-    opacity: 1;
-    transform: translateY(0);
+.menu-options li a:hover{
+    transform: translateX(0) scale(1.2);
 }
 
 .text{
@@ -86,6 +86,8 @@ main{
 }
 .body-container{
     z-index: -7;
+    top: 100px;
+    right: 40px;
     position: absolute;
     pointer-events: none;
 }
@@ -127,6 +129,7 @@ main{
 }
 .ETH{
     position: absolute;
+    top: 0px;
     z-index: 2;
     pointer-events: none;
 }
@@ -145,21 +148,17 @@ main{
     z-index: -7;
 }
 #line img{
-    margin-left: 1400px;
-    margin-bottom: 100px;
     height: 530px;
     width: 3.2px;
 }
 #menu-icon{
     z-index: 12;
     cursor: pointer;
-    margin-right: 1300px;
-    margin-bottom: 660px;
 }
 #menu-icon img{
     rotate: 90deg;
-    height: 40px;
-    width: 15px;
+    height: 50px;
+    width: 18px;
     transition: box-shadow 0.3s ease-in-out, 
     opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
@@ -177,7 +176,6 @@ main{
 
 #Crystal img{
     height: 700px;
-    margin-bottom: 45px;
 }
 #light {
     position: absolute;

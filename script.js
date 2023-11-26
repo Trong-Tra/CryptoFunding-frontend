@@ -5,13 +5,17 @@ document.addEventListener("DOMContentLoaded", function () {
     var bg_image = document.getElementById("bg-image")
     var crystal = document.getElementById("Crystal")
     var image_4 = document.getElementById("line")
+
     var light = document.getElementById("light")
     var menu_icon = document.getElementById("menu-icon")
     var menuOptions = document.getElementById("menu-Options")
+    var menuOptionItems = menuOptions.querySelectorAll("li")
+
     var vct_1 = document.getElementById("vector1")
     var vct_2 = document.getElementById("vector2")
     var vct_3 = document.getElementById("vector3")
     var vct_4 = document.getElementById("vector4")
+
     var startButton = document.getElementById("get_start")
 
     vct_1.classList.add("rotate_left")
@@ -37,17 +41,35 @@ document.addEventListener("DOMContentLoaded", function () {
         startButton.classList.add("appear")
     }, 1500)
 
+    menuOptionItems.forEach(function (item, index) {
+        item.style.transform = "translateX(-" + (index + 1) * 100 + "%)"
+    })
+
     menu_icon.addEventListener("click", function () {
         if (menuOptions.style.visibility === "visible") {
             menu_icon.classList.remove("turnCCW")
-            menu_icon.classList.toggle("turnCW")
-            menuOptions.style.visibility = "hidden"
+            menu_icon.classList.add("turnCW")
+
+            menuOptionItems.forEach(function (item, index) {
+                item.style.transition =
+                    "transform 0.3s ease " + index * 0.1 + "s"
+                item.style.transform = "translateX(-" + (index + 1) * 100 + "%)"
+            })
+
+            setTimeout(function () {
+                menuOptions.style.visibility = "hidden"
+            }, menuOptionItems.length * 120)
         } else {
             menu_icon.classList.remove("turnCW")
-            menu_icon.classList.toggle("turnCCW")
-            setTimeout(function () {
-                menuOptions.style.visibility = "visible"
-            }, 200)
+            menu_icon.classList.add("turnCCW")
+
+            menuOptions.style.visibility = "visible"
+
+            menuOptionItems.forEach(function (item, index) {
+                item.style.transition =
+                    "transform 0.3s ease " + index * 0.1 + "s"
+                item.style.transform = "translateX(0)"
+            })
         }
     })
 })
