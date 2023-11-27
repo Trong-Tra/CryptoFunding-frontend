@@ -3,7 +3,8 @@
 body{
     margin: 0;
     padding: 0;
-    background: radial-gradient(circle, transparent 0%, transparent 70%, #fefefe 70%, #909090);
+    /* background: radial-gradient(circle, transparent 0%, transparent 70%, #fefefe 70%, #909090); */
+    background-color: #fefefe;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -74,6 +75,31 @@ main{
     transform: scale(1.4);
 }
 
+.mascot{
+    position: absolute;
+    top: 100px;
+    left: 880px;
+}
+
+#nft_1{
+    position: absolute;
+    height: 550px;
+    width: 550px;
+    z-index: 2;
+}
+#nft_2{
+    position: absolute;
+    height: 550px;
+    width: 550px;
+    z-index: 1;
+}
+#nft_3{
+    position: absolute;
+    height: 550px;
+    width: 550px;
+    z-index: 3;
+}
+
 .turnCCW {
     animation: TurnCCW 0.5s forwards;
 }
@@ -95,5 +121,50 @@ main{
     }
     to {
         transform: rotate(0);
+    }
+} 
+
+.float1 {
+    animation: Float1 4s ease-in-out infinite;
+}
+@keyframes Float1 {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(1.7%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+} 
+
+.float2 {
+    animation: Float2 7s linear infinite;
+}
+@keyframes Float2 {
+    0%, 100% {
+        transform: translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateX(-1%) translateY(-1.5%);
+    }
+    75%{
+        transform: translateX(1%) translateY(1.5%);
+    }
+} 
+
+.float3 {
+    animation: Float3 5s linear infinite;
+}
+@keyframes Float3 {
+    0%, 100% {
+        transform: translateX(0) translateY(0);
+    }
+    25%{
+        transform: translateX(2%) translateY(-0.2%);
+    }
+    75%{
+        transform: translateX(-2%) translateY(0.2%);
     }
 } 

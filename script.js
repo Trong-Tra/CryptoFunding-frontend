@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             setTimeout(function () {
                 menuOptions.style.visibility = "hidden"
-            }, menuOptionItems.length * 120)
+            }, menuOptionItems.length * 113)
         } else {
             menu_icon.classList.remove("turnCW")
             menu_icon.classList.add("turnCCW")
@@ -109,7 +109,7 @@ async function connect() {
     if (typeof window.ethereum !== "undefined") {
         await window.ethereum.request({ method: "eth_requestAccounts" })
         console.log("Connected")
-        status.innerHTML = "Status: Connected"
+        status.innerHTML = "Status: CONNECTED"
     } else {
         console.log("Please install metamask!")
         status.innerHTML = "Status: Unknown"

@@ -336,7 +336,7 @@ main{
 } 
 
 .appear {
-    animation: Appear 5s forwards;
+    animation: Appear 1.5s forwards;
 }
 @keyframes Appear {
     0% {

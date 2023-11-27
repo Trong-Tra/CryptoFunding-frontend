@@ -6,6 +6,14 @@ document.addEventListener("DOMContentLoaded", function () {
     var menuOptions = document.getElementById("menu-Options")
     var menuOptionItems = menuOptions.querySelectorAll("li")
 
+    var nft1 = document.getElementById("nft_1")
+    var nft2 = document.getElementById("nft_2")
+    var nft3 = document.getElementById("nft_3")
+
+    nft1.classList.add("float1")
+    nft2.classList.add("float2")
+    nft3.classList.add("float3")
+
     menuOptionItems.forEach(function (item, index) {
         item.style.transform = "translateX(-" + (index + 1) * 100 + "%)"
     })
@@ -23,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             setTimeout(function () {
                 menuOptions.style.visibility = "hidden"
-            }, menuOptionItems.length * 120)
+            }, menuOptionItems.length * 113)
         } else {
             menu_icon.classList.remove("turnCW")
             menu_icon.classList.add("turnCCW")
