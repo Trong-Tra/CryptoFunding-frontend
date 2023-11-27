@@ -68,7 +68,7 @@ main{
     justify-content: center;
     height: 100vh;
     position: relative;
-    left: 690px;
+    left: 525px;
 }
 
 .Title{
@@ -144,18 +144,39 @@ main{
     pointer-events: none;
 }
 .left_decor {
+    position: absolute;
+}
+.right_decor {
     position: relative;
+}
+
+#Status{
+    z-index: 6;
+    margin-bottom: 20px;
+    margin-left: 750px;
+    font-size: 23px;
+    font-family: 'Unbounded', sans-serif;
+    opacity: 0;
 }
 
 #image-3{
     z-index: 6;
 }
 #image-3 img{
-    margin-right: 1250px;
+    margin-right: 1050px;
     margin-bottom: 66px;
     height: 45px;
     width: 125px;
     opacity: 70%;
+}
+#image-2 {
+    z-index: 6;
+}
+#image-2 img {
+    height: 15px;
+    width: 300px;
+    margin-left: 750px;
+    margin-bottom: 66px;
 }
 
 #line{

@@ -1,5 +1,43 @@
 import { ethers } from "https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.min.js"
-import { abi, contractAddress } from "./main/constants.js"
+import { abi, contractAddress } from "./constants.js"
+
+document.addEventListener("DOMContentLoaded", function () {
+    var menu_icon = document.getElementById("menu-icon")
+    var menuOptions = document.getElementById("menu-Options")
+    var menuOptionItems = menuOptions.querySelectorAll("li")
+
+    menuOptionItems.forEach(function (item, index) {
+        item.style.transform = "translateX(-" + (index + 1) * 100 + "%)"
+    })
+
+    menu_icon.addEventListener("click", function () {
+        if (menuOptions.style.visibility === "visible") {
+            menu_icon.classList.remove("turnCCW")
+            menu_icon.classList.add("turnCW")
+
+            menuOptionItems.forEach(function (item, index) {
+                item.style.transition =
+                    "transform 0.3s ease " + index * 0.1 + "s"
+                item.style.transform = "translateX(-" + (index + 1) * 100 + "%)"
+            })
+
+            setTimeout(function () {
+                menuOptions.style.visibility = "hidden"
+            }, menuOptionItems.length * 120)
+        } else {
+            menu_icon.classList.remove("turnCW")
+            menu_icon.classList.add("turnCCW")
+
+            menuOptions.style.visibility = "visible"
+
+            menuOptionItems.forEach(function (item, index) {
+                item.style.transition =
+                    "transform 0.3s ease " + index * 0.1 + "s"
+                item.style.transform = "translateX(0)"
+            })
+        }
+    })
+})
 
 const connectButton = document.getElementById("connectButton")
 const fundButton = document.getElementById("fundButton")

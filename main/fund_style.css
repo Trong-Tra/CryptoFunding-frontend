@@ -8,3 +8,92 @@ body{
     display: flex;
     flex-direction: column;
 }
+
+main{
+    min-height: 100vh;
+    margin-top: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+}
+.menu{
+    position: absolute;
+    z-index: 12;
+    top: 45px;
+    left: 110px;
+}
+
+.menu-options {
+    z-index: 12;
+    visibility: hidden;
+    position: absolute;
+    top: 50px;
+    left: 200px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.menu-options ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0px;
+    display: flex;
+}
+.menu-options li{
+    padding: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: 'Unbounded', sans-serif;
+}
+.menu-options li a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.menu-options li a:hover{
+    transform: translateX(0) scale(1.4);
+}
+
+#menu-icon{
+    z-index: 12;
+    cursor: pointer;
+}
+#menu-icon img{
+    rotate: 90deg;
+    height: 50px;
+    width: 18px;
+    transition: box-shadow 0.3s ease-in-out, 
+    opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+#menu-icon img:hover{
+    transform: scale(1.4);
+}
+
+.turnCCW {
+    animation: TurnCCW 0.5s forwards;
+}
+@keyframes TurnCCW {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(-90deg);
+    }
+}
+
+.turnCW {
+    animation: TurnCW 0.5s forwards;
+}
+@keyframes TurnCW {
+    from {
+        transform: rotate(-90deg);
+    }
+    to {
+        transform: rotate(0);
+    }
+} 

@@ -18,6 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var startButton = document.getElementById("get_start")
 
+    var status = document.getElementById("Status")
+    var right_decor = document.getElementById("image-2")
+
     vct_1.classList.add("rotate_left")
     vct_4.classList.add("rotate_left")
 
@@ -39,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 5000)
 
     menu_icon.classList.add("float-in")
+    right_decor.classList.add("float-in")
 
     image_4.classList.add("spread")
     bg_image.classList.add("zoom-in")
@@ -48,11 +52,13 @@ document.addEventListener("DOMContentLoaded", function () {
         crystal.classList.add("glitch")
         light.classList.add("glitch")
         startButton.classList.add("appear")
+        status.classList.add("appear")
     })
     setTimeout(function () {
         crystal.classList.add("glitch")
         light.classList.add("glitch")
         startButton.classList.add("appear")
+        status.classList.add("appear")
     }, 1500)
 
     menuOptionItems.forEach(function (item, index) {
@@ -95,6 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 
 const connectButton = document.getElementById("connectButton")
+const status = document.getElementById("Status")
 
 connectButton.onclick = connect
 
@@ -102,9 +109,9 @@ async function connect() {
     if (typeof window.ethereum !== "undefined") {
         await window.ethereum.request({ method: "eth_requestAccounts" })
         console.log("Connected")
-
-        window.location.href = "./main/fund.html"
+        status.innerHTML = "Status: Connected"
     } else {
         console.log("Please install metamask!")
+        status.innerHTML = "Status: Unknown"
     }
 }
