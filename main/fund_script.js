@@ -10,9 +10,16 @@ document.addEventListener("DOMContentLoaded", function () {
     var nft2 = document.getElementById("nft_2")
     var nft3 = document.getElementById("nft_3")
 
+    var nft_word = document.getElementById("nft-word")
+    var mkp = document.getElementById("mkp")
+
     nft1.classList.add("float1")
     nft2.classList.add("float2")
     nft3.classList.add("float3")
+
+    nft_word.classList.add("slide-in")
+    mkp.classList.add("slide-in")
+    menu_icon.classList.add("slide-in")
 
     menuOptionItems.forEach(function (item, index) {
         item.style.transform = "translateX(-" + (index + 1) * 100 + "%)"
@@ -21,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     menu_icon.addEventListener("click", function () {
         if (menuOptions.style.visibility === "visible") {
             menu_icon.classList.remove("turnCCW")
+            menu_icon.classList.remove("slide-in")
             menu_icon.classList.add("turnCW")
 
             menuOptionItems.forEach(function (item, index) {
@@ -34,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }, menuOptionItems.length * 113)
         } else {
             menu_icon.classList.remove("turnCW")
+            menu_icon.classList.remove("slide-in")
             menu_icon.classList.add("turnCCW")
 
             menuOptions.style.visibility = "visible"

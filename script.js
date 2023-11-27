@@ -112,6 +112,6 @@ async function connect() {
         status.innerHTML = "Status: CONNECTED"
     } else {
         console.log("Please install metamask!")
-        status.innerHTML = "Status: Unknown"
+        status.innerHTML = "Status: UNKNOWN"
     }
 }

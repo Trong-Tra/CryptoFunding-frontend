@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@1,700&display=swap');
 
 body{
     margin: 0;
@@ -75,6 +76,25 @@ main{
     transform: scale(1.4);
 }
 
+.title{
+    position: absolute;
+    top: 130px;
+    left: 200px;
+}
+.title h3{
+    position: absolute;
+    font-size: 60px;
+    font-family: 'Quantico', sans-serif;
+    top: 40px;
+    left: 100px;
+}
+
+#nft-word{
+    position: absolute;
+    height: 70px;
+    width: 400px;
+}
+
 .mascot{
     position: absolute;
     top: 100px;
@@ -125,14 +145,14 @@ main{
 } 
 
 .float1 {
-    animation: Float1 4s ease-in-out infinite;
+    animation: Float1 3s ease-in-out infinite;
 }
 @keyframes Float1 {
     0% {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(1.7%);
+        transform: translateY(1%);
     }
     100% {
         transform: translateY(0);
@@ -147,10 +167,10 @@ main{
         transform: translateX(0) translateY(0);
     }
     25% {
-        transform: translateX(-1%) translateY(-1.5%);
+        transform: translateX(-0.5%) translateY(-1%);
     }
     75%{
-        transform: translateX(1%) translateY(1.5%);
+        transform: translateX(0.5%) translateY(1%);
     }
 } 
 
@@ -162,9 +182,21 @@ main{
         transform: translateX(0) translateY(0);
     }
     25%{
-        transform: translateX(2%) translateY(-0.2%);
+        transform: translateX(1%) translateY(-0.2%);
     }
     75%{
-        transform: translateX(-2%) translateY(0.2%);
+        transform: translateX(-1%) translateY(0.2%);
     }
 } 
+
+.slide-in {
+    animation: Slide 1s forwards;
+}
+@keyframes Slide {
+    from {
+        transform: translateX(-1000%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
