@@ -89,6 +89,15 @@ main{
     left: 100px;
 }
 
+.title p{
+    position: absolute;
+    font-size: 18px ;
+    font-family: 'Unbounded', sans-serif;
+    top: 180px;
+    left: -50px;
+    width: 550px;
+}
+
 #nft-word{
     position: absolute;
     height: 70px;
