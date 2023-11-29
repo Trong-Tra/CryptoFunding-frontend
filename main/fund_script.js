@@ -56,42 +56,50 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 })
 
-// const connectButton = document.getElementById("connectButton")
-// const fundButton = document.getElementById("fundButton")
+const connectButton = document.getElementById("connectButton")
+const fundButton = document.getElementById("fund")
 // const balanceButton = document.getElementById("balanceButton")
 // const withdrawButton = document.getElementById("withdrawButton")
 // const getOwnerButton = document.getElementById("getOwnerButton")
 // const getFunderButton = document.getElementById("getFunderButton")
 
-// connectButton.onclick = connect
-// fundButton.onclick = fund
+connectButton.onclick = connect
+fundButton.onclick = fund
 // balanceButton.onclick = getBalance
 // withdrawButton.onclick = withdraw
 // getOwnerButton.onclick = getOwner
 // getFunderButton.onclick = trackFunder
 
-// async function connect() {
-//     if (typeof window.ethereum !== "undefined") {
-//         await window.ethereum.request({ method: "eth_requestAccounts" })
-//         connectButton.innerHTML = "Connected!"
-//         showMessages(["Connecting...", "Connected successfully 🦊"])
-//     } else {
-//         showMessage("Please install metamask 🦊")
-//     }
-// }
-
-updatedBalance()
-setInterval(updatedBalance, 2000)
-
-async function updatedBalance() {
-    if (typeof window.ethereum != "undefined") {
-        const provider = new ethers.BrowserProvider(window.ethereum)
-        const balance = await provider.getBalance(contractAddress)
-        const formattedBalance = ethers.formatEther(balance)
-
-        document.getElementById("balanceValue").textContent = formattedBalance
+async function connect() {
+    if (typeof window.ethereum !== "undefined") {
+        await window.ethereum.request({ method: "eth_requestAccounts" })
+        console.log("Connected")
+    } else {
+        console.log("Please install metamask!")
     }
 }
+
+// updateBalance()
+// setInterval(updatedBalance, 2000)
+
+// async function updateBalance() {
+//     // if (typeof window.ethereum != "undefined") {
+//     //     const provider = new ethers.BrowserProvider(window.ethereum)
+//     //     const balance = await provider.getBalance(contractAddress)
+//     //     const formattedBalance = ethers.formatEther(balance)
+
+//     //     document.getElementById("balanceValue").textContent = formattedBalance
+//     // }
+
+//     const balance = await provider.getBalance(contractAddress)
+//     const formattedBalance = ethers.formatEther(balance)
+
+//     document.getElementById("balanceValue").textContent = formattedBalance
+// }
+
+// initialize().then(() => {
+//     setInterval(updateBalance, 5000)
+// })
 
 // async function fund() {
 //     const ethAmount = document.getElementById("ethAmount").value
@@ -106,7 +114,7 @@ async function updatedBalance() {
 //             })
 //             await listenForTransactionMine(transactionResponse, provider)
 //             console.log("Done!")
-//             showMessages(["Funding process initiated!", "Thank you 🦊"])
+
 //         } catch (error) {
 //             console.log(error)
 //         }
