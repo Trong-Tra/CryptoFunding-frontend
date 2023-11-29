@@ -3,8 +3,7 @@
 body{
     margin: 0;
     padding: 0;
-    /* background: radial-gradient(circle, transparent 0%, transparent 70%, #fefefe 70%, #909090); */
-    background-color: #fefefe;
+    background: radial-gradient(circle, transparent 0%, transparent 70%, #ffffff 70%, #f6f6f6);
     height: 100vh;
     display: flex;
     flex-direction: column;

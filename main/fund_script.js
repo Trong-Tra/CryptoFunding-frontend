@@ -56,119 +56,120 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 })
 
-const connectButton = document.getElementById("connectButton")
-const fundButton = document.getElementById("fundButton")
-const balanceButton = document.getElementById("balanceButton")
-const withdrawButton = document.getElementById("withdrawButton")
-const getOwnerButton = document.getElementById("getOwnerButton")
-const getFunderButton = document.getElementById("getFunderButton")
+// const connectButton = document.getElementById("connectButton")
+// const fundButton = document.getElementById("fundButton")
+// const balanceButton = document.getElementById("balanceButton")
+// const withdrawButton = document.getElementById("withdrawButton")
+// const getOwnerButton = document.getElementById("getOwnerButton")
+// const getFunderButton = document.getElementById("getFunderButton")
 
-connectButton.onclick = connect
-fundButton.onclick = fund
-balanceButton.onclick = getBalance
-withdrawButton.onclick = withdraw
-getOwnerButton.onclick = getOwner
-getFunderButton.onclick = trackFunder
+// connectButton.onclick = connect
+// fundButton.onclick = fund
+// balanceButton.onclick = getBalance
+// withdrawButton.onclick = withdraw
+// getOwnerButton.onclick = getOwner
+// getFunderButton.onclick = trackFunder
 
-async function connect() {
-    if (typeof window.ethereum !== "undefined") {
-        await window.ethereum.request({ method: "eth_requestAccounts" })
-        connectButton.innerHTML = "Connected!"
-        showMessages(["Connecting...", "Connected successfully 🦊"])
-    } else {
-        showMessage("Please install metamask 🦊")
-    }
-}
+// async function connect() {
+//     if (typeof window.ethereum !== "undefined") {
+//         await window.ethereum.request({ method: "eth_requestAccounts" })
+//         connectButton.innerHTML = "Connected!"
+//         showMessages(["Connecting...", "Connected successfully 🦊"])
+//     } else {
+//         showMessage("Please install metamask 🦊")
+//     }
+// }
 
-async function getBalance() {
+updatedBalance()
+setInterval(updatedBalance, 2000)
+
+async function updatedBalance() {
     if (typeof window.ethereum != "undefined") {
         const provider = new ethers.BrowserProvider(window.ethereum)
         const balance = await provider.getBalance(contractAddress)
-        console.log(`Contract current balance`, ethers.formatEther(balance))
-        showMessages([
-            "Confirming owner process...",
-            `The contract current balance is ${ethers.formatEther(balance)}`,
-        ])
+        const formattedBalance = ethers.formatEther(balance)
+
+        document.getElementById("balanceValue").textContent = formattedBalance
     }
 }
 
-async function fund() {
-    const ethAmount = document.getElementById("ethAmount").value
-    console.log(`Funding with ${ethAmount}...`)
-    if (typeof window.ethereum !== "undefined") {
-        const provider = new ethers.BrowserProvider(window.ethereum)
-        const signer = await provider.getSigner()
-        const contract = new ethers.Contract(contractAddress, abi, signer)
-        try {
-            const transactionResponse = await contract.fund({
-                value: ethers.parseEther(ethAmount),
-            })
-            await listenForTransactionMine(transactionResponse, provider)
-            console.log("Done!")
-            showMessages(["Funding process initiated!", "Thank you 🦊"])
-        } catch (error) {
-            console.log(error)
-        }
-    }
-}
+// async function fund() {
+//     const ethAmount = document.getElementById("ethAmount").value
+//     console.log(`Funding with ${ethAmount}...`)
+//     if (typeof window.ethereum !== "undefined") {
+//         const provider = new ethers.BrowserProvider(window.ethereum)
+//         const signer = await provider.getSigner()
+//         const contract = new ethers.Contract(contractAddress, abi, signer)
+//         try {
+//             const transactionResponse = await contract.fund({
+//                 value: ethers.parseEther(ethAmount),
+//             })
+//             await listenForTransactionMine(transactionResponse, provider)
+//             console.log("Done!")
+//             showMessages(["Funding process initiated!", "Thank you 🦊"])
+//         } catch (error) {
+//             console.log(error)
+//         }
+//     }
+// }
 
-function listenForTransactionMine(transactionResponse, provider) {
-    console.log(`Mining ${transactionResponse.hash}...`)
-    return new Promise((resolve, reject) => {
-        provider.once(transactionResponse.hash, (transactionReceipt) => {
-            let confirmNum = transactionReceipt.confirmations()
-            console.log(`Completed with ${confirmNum} confirmations`)
-            resolve()
-        })
-    })
-}
+// function listenForTransactionMine(transactionResponse, provider) {
+//     console.log(`Mining ${transactionResponse.hash}...`)
+//     return new Promise((resolve, reject) => {
+//         provider.once(transactionResponse.hash, (transactionReceipt) => {
+//             let confirmNum = transactionReceipt.confirmations()
+//             console.log(`Completed with ${confirmNum} confirmations`)
+//             resolve()
+//         })
+//     })
+// }
 
-async function withdraw() {
-    if (typeof window.ethereum != "undefined") {
-        console.log("Withdrawing...")
-        const provider = new ethers.BrowserProvider(window.ethereum)
-        const signer = await provider.getSigner()
-        const contract = new ethers.Contract(contractAddress, abi, signer)
-        try {
-            const transactionResponse = await contract.withdraw()
-            await listenForTransactionMine(transactionResponse, provider)
-            showMessages(["Withdrawing...", "Completed"])
-        } catch (error) {
-            console.log(error)
-        }
-    }
-}
+// async function withdraw() {
+//     if (typeof window.ethereum != "undefined") {
+//         console.log("Withdrawing...")
+//         const provider = new ethers.BrowserProvider(window.ethereum)
+//         const signer = await provider.getSigner()
+//         const contract = new ethers.Contract(contractAddress, abi, signer)
+//         try {
+//             const transactionResponse = await contract.withdraw()
+//             await listenForTransactionMine(transactionResponse, provider)
+//             showMessages(["Withdrawing...", "Completed"])
+//         } catch (error) {
+//             console.log(error)
+//         }
+//     }
+// }
 
-async function getOwner() {
-    let ownerAddress = null
-    try {
-        const provider = new ethers.BrowserProvider(window.ethereum)
-        const signer = await provider.getSigner()
-        const contract = new ethers.Contract(contractAddress, abi, signer)
-        ownerAddress = await contract.getOwner()
-        console.log(`Owner is... ${ownerAddress}`)
-        showMessage("Please check your website console")
-    } catch (err) {
-        console.log(err)
-    }
-}
+// async function getOwner() {
+//     let ownerAddress = null
+//     try {
+//         const provider = new ethers.BrowserProvider(window.ethereum)
+//         const signer = await provider.getSigner()
+//         const contract = new ethers.Contract(contractAddress, abi, signer)
+//         ownerAddress = await contract.getOwner()
+//         console.log(`Owner is... ${ownerAddress}`)
+//         showMessage("Please check your website console")
+//     } catch (err) {
+//         console.log(err)
+//     }
+// }
 
-async function trackFunder() {
-    const funderIndex = document.getElementById("funderIndex").value
-    const funderAddress = await getFunder(funderIndex)
-    console.log(`Funder's address: ${funderAddress}`)
-    showMessage("Please check your website console")
-}
+// async function trackFunder() {
+//     const funderIndex = document.getElementById("funderIndex").value
+//     const funderAddress = await getFunder(funderIndex)
+//     console.log(`Funder's address: ${funderAddress}`)
+//     showMessage("Please check your website console")
+// }
 
-async function getFunder(funderIndex) {
-    let funderAddress = null
-    try {
-        const provider = new ethers.BrowserProvider(window.ethereum)
-        const signer = await provider.getSigner()
-        const contract = new ethers.Contract(contractAddress, abi, signer)
-        funderAddress = await contract.getFunder(funderIndex)
-        return funderAddress
-    } catch (err) {
-        console.log(err)
-    }
-}
+// async function getFunder(funderIndex) {
+//     let funderAddress = null
+//     try {
+//         const provider = new ethers.BrowserProvider(window.ethereum)
+//         const signer = await provider.getSigner()
+//         const contract = new ethers.Contract(contractAddress, abi, signer)
+//         funderAddress = await contract.getFunder(funderIndex)
+//         return funderAddress
+//     } catch (err) {
+//         console.log(err)
+//     }
+// }

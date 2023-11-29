@@ -4,7 +4,6 @@
 body{
     margin: 0;
     padding: 0;
-    /* background: radial-gradient(circle, transparent 0%, transparent 70%, #fefefe 70%, #909090); */
     background-color: #fefefe;
     height: 100vh;
     display: flex;
@@ -86,7 +85,7 @@ main{
     font-size: 60px;
     font-family: 'Quantico', sans-serif;
     top: 40px;
-    left: 100px;
+    left: 55px;
 }
 
 .title p{
@@ -102,6 +101,7 @@ main{
     position: absolute;
     height: 70px;
     width: 400px;
+    left: -50px;
 }
 
 .mascot{
@@ -127,6 +127,67 @@ main{
     height: 550px;
     width: 550px;
     z-index: 3;
+}
+
+.funding-container{
+    position: absolute;
+    top: 480px; left: 150px;
+}
+
+.funding-container button{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: 'Unbounded', sans-serif;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out, 
+    opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+#fund {
+    width: 150px;
+    height: 45px;
+    border-radius: 20px;
+    border: transparent;
+    box-shadow: 0px 6px 20px rgb(173, 237, 113);
+    background-color: rgb(183, 240, 84);
+}
+#fund:hover {
+    box-shadow: 0px 6px 30px rgb(173, 237, 113);
+    opacity: 0.95;
+    transform: scale(1.2);
+}
+#learn {
+    width: 200px;
+    height: 45px;
+    border-radius: 20px;
+    margin-left: 25px;
+    border: 2px solid rgba(0, 0, 0, 0.079);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.201);
+    background-color: transparent;
+}
+#learn:hover {
+    box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.289);
+    opacity: 0.95;
+    transform: scale(1.2);
+}
+
+.balanceDisplay {
+    position: absolute;
+    white-space: nowrap;
+    top: 620px;
+    left: 150px;
+    font-family: 'Quantico', sans-serif;
+    font-size: 23px;
+}
+
+.funderDisplay {
+    position: absolute;
+    white-space: nowrap;
+    top: 620px;
+    left: 490px;
+    font-family: 'Quantico', sans-serif;
+    font-size: 23px;
 }
 
 .turnCCW {
@@ -203,9 +264,30 @@ main{
 }
 @keyframes Slide {
     from {
-        transform: translateX(-1000%);
+        transform: translateX(-500%);
     }
     to {
         transform: translateX(0);
     }
+}
+
+
+/* pop up section */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.popup {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
