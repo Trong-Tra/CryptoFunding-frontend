@@ -57,14 +57,18 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 
 const connectButton = document.getElementById("connectButton")
-const fundButton = document.getElementById("fund")
+const fundButton = document.getElementById("fundButton")
+const popupClose = document.getElementById("popup-close")
+const popupContainer = document.getElementById("popup-container")
+const overlay = document.getElementById("overlay")
+
 // const balanceButton = document.getElementById("balanceButton")
 // const withdrawButton = document.getElementById("withdrawButton")
 // const getOwnerButton = document.getElementById("getOwnerButton")
 // const getFunderButton = document.getElementById("getFunderButton")
 
 connectButton.onclick = connect
-fundButton.onclick = fund
+// fundButton.onclick = fund
 // balanceButton.onclick = getBalance
 // withdrawButton.onclick = withdraw
 // getOwnerButton.onclick = getOwner
@@ -79,27 +83,28 @@ async function connect() {
     }
 }
 
-// updateBalance()
-// setInterval(updatedBalance, 2000)
+updateBalance()
+setInterval(updateBalance, 2000)
 
-// async function updateBalance() {
-//     // if (typeof window.ethereum != "undefined") {
-//     //     const provider = new ethers.BrowserProvider(window.ethereum)
-//     //     const balance = await provider.getBalance(contractAddress)
-//     //     const formattedBalance = ethers.formatEther(balance)
+async function updateBalance() {
+    if (typeof window.ethereum != "undefined") {
+        const provider = new ethers.BrowserProvider(window.ethereum)
+        const balance = await provider.getBalance(contractAddress)
+        const formattedBalance = ethers.formatEther(balance)
 
-//     //     document.getElementById("balanceValue").textContent = formattedBalance
-//     // }
+        document.getElementById("balanceValue").textContent = formattedBalance
+    }
+}
 
-//     const balance = await provider.getBalance(contractAddress)
-//     const formattedBalance = ethers.formatEther(balance)
+fundButton.addEventListener("click", function () {
+    overlay.style.display = "block"
+    popupContainer.style.display = "block"
+})
 
-//     document.getElementById("balanceValue").textContent = formattedBalance
-// }
-
-// initialize().then(() => {
-//     setInterval(updateBalance, 5000)
-// })
+popupClose.addEventListener("click", function () {
+    overlay.style.display = "none"
+    popupContainer.style.display = "none"
+})
 
 // async function fund() {
 //     const ethAmount = document.getElementById("ethAmount").value
@@ -114,7 +119,6 @@ async function connect() {
 //             })
 //             await listenForTransactionMine(transactionResponse, provider)
 //             console.log("Done!")
-
 //         } catch (error) {
 //             console.log(error)
 //         }

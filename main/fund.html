@@ -27,11 +27,11 @@
             </p>
         </div>
         <div class="funding-container">
-            <button id="fund">Fund</button>
+            <button id="fundButton">Fund</button>
             <button id="learn">Learn more</button>
         </div>
         <div class="balanceDisplay">Amount funded:
-            <span id="balanceValue">0</span> ETH
+            <span id="balanceValue"></span> ETH
         </div>
         <div class="funderDisplay">People funded: 
             <span id="fundersAmount">0</span>
@@ -40,6 +40,14 @@
             <img id="nft_1" src="../Assets/NFT1.png">
             <img id="nft_2" src="../Assets/NFT2.png">
             <img id="nft_3" src="../Assets/NFT3.png">
+        </div>
+
+        <div id="overlay"></div>
+
+        <div id="popup-container">
+            <span id="popup-close">&times;</span>
+            <label for="numericInput">Enter amount</label>
+            <input type="number" id="eth-input" name="numericInput" pattern="[0-9]" inputmode="numeric">
         </div>
     </main>
     <script src="fund_script.js" type="module"></script>
