@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     })
 
-    const revisit = document.querySelector(".start a")
+    const revisit = document.querySelector("#get_start")
 
     revisit.addEventListener("click", function () {
         revisit.style.color = "inherit"
@@ -102,6 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const connectButton = document.getElementById("connectButton")
 const status = document.getElementById("Status")
+var lock = false
 
 connectButton.onclick = connect
 
@@ -110,8 +111,24 @@ async function connect() {
         await window.ethereum.request({ method: "eth_requestAccounts" })
         console.log("Connected")
         status.innerHTML = "Status: CONNECTED"
+        lock = true
     } else {
         console.log("Please install metamask!")
         status.innerHTML = "Status: UNKNOWN"
+        lock = false
     }
 }
+
+document
+    .getElementById("get_start")
+    .addEventListener("click", function (event) {
+        event.preventDefault()
+
+        if (lock == true) {
+            window.location.href = "./main/fund.html"
+        } else {
+            alert(
+                "Please connect your account before getting started. \n To connect, select account in the menu."
+            )
+        }
+    })
