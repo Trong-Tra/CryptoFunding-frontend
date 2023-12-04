@@ -88,6 +88,9 @@ async function connect() {
 updateBalance()
 setInterval(updateBalance, 2000)
 
+updateParticipants()
+setInterval(updateParticipants, 2000)
+
 async function updateBalance() {
     if (typeof window.ethereum != "undefined") {
         const provider = new ethers.BrowserProvider(window.ethereum)
@@ -95,6 +98,23 @@ async function updateBalance() {
         const formattedBalance = ethers.formatEther(balance)
 
         document.getElementById("balanceValue").textContent = formattedBalance
+    }
+}
+
+async function updateParticipants() {
+    try {
+        if (typeof window.ethereum != "undefined") {
+            const provider = new ethers.BrowserProvider(window.ethereum)
+            const signer = await provider.getSigner()
+            const contract = new ethers.Contract(contractAddress, abi, signer)
+            const count = await contract.getFundcount()
+            const formattedCount = ethers.formatEther(count)
+
+            document.getElementById("fundersAmount").textContent =
+                formattedCount
+        }
+    } catch (error) {
+        console.error("Error updating participants:", error)
     }
 }
 
