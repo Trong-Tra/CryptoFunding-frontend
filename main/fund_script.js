@@ -58,6 +58,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const connectButton = document.getElementById("connectButton")
 const fundButton = document.getElementById("fundButton")
+const Fund = document.getElementById("fund")
+
 const popupClose = document.getElementById("popup-close")
 const popupContainer = document.getElementById("popup-con")
 const overlay = document.getElementById("overlay")
@@ -68,7 +70,7 @@ const overlay = document.getElementById("overlay")
 // const getFunderButton = document.getElementById("getFunderButton")
 
 connectButton.onclick = connect
-// fundButton.onclick = fund
+Fund.onclick = fund
 // balanceButton.onclick = getBalance
 // withdrawButton.onclick = withdraw
 // getOwnerButton.onclick = getOwner
@@ -106,35 +108,37 @@ popupClose.addEventListener("click", function () {
     popupContainer.style.display = "none"
 })
 
-// async function fund() {
-//     const ethAmount = document.getElementById("ethAmount").value
-//     console.log(`Funding with ${ethAmount}...`)
-//     if (typeof window.ethereum !== "undefined") {
-//         const provider = new ethers.BrowserProvider(window.ethereum)
-//         const signer = await provider.getSigner()
-//         const contract = new ethers.Contract(contractAddress, abi, signer)
-//         try {
-//             const transactionResponse = await contract.fund({
-//                 value: ethers.parseEther(ethAmount),
-//             })
-//             await listenForTransactionMine(transactionResponse, provider)
-//             console.log("Done!")
-//         } catch (error) {
-//             console.log(error)
-//         }
-//     }
-// }
+async function fund() {
+    const ethAmount = document.getElementById("eth-input").value
+    console.log(`Funding with ${ethAmount}...`)
+    if (typeof window.ethereum !== "undefined") {
+        const provider = new ethers.BrowserProvider(window.ethereum)
+        const signer = await provider.getSigner()
+        const contract = new ethers.Contract(contractAddress, abi, signer)
+        try {
+            const transactionResponse = await contract.fund({
+                value: ethers.parseEther(ethAmount),
+            })
+            await listenForTransactionMine(transactionResponse, provider)
+            popupContainer.style.display = "none"
+            overlay.style.display = "none"
+            console.log("Done!")
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
 
-// function listenForTransactionMine(transactionResponse, provider) {
-//     console.log(`Mining ${transactionResponse.hash}...`)
-//     return new Promise((resolve, reject) => {
-//         provider.once(transactionResponse.hash, (transactionReceipt) => {
-//             let confirmNum = transactionReceipt.confirmations()
-//             console.log(`Completed with ${confirmNum} confirmations`)
-//             resolve()
-//         })
-//     })
-// }
+function listenForTransactionMine(transactionResponse, provider) {
+    console.log(`Mining ${transactionResponse.hash}...`)
+    return new Promise((resolve, reject) => {
+        provider.once(transactionResponse.hash, (transactionReceipt) => {
+            let confirmNum = transactionReceipt.confirmations()
+            console.log(`Completed with ${confirmNum} confirmations`)
+            resolve()
+        })
+    })
+}
 
 // async function withdraw() {
 //     if (typeof window.ethereum != "undefined") {
