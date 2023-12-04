@@ -128,7 +128,7 @@ document
             window.location.href = "./main/fund.html"
         } else {
             alert(
-                "Please connect your account before getting started. \n To connect, select account in the menu."
+                "Please connect your account before getting started. \nTo connect, select account in the menu."
             )
         }
     })
