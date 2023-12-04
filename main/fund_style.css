@@ -273,7 +273,7 @@ main{
 
 
 /* pop up section */
-#popup-container {
+.popup-container {
     display: none;
     position: fixed;
     top: -150px;
@@ -325,8 +325,35 @@ main{
 #eth-input {
     position: absolute;
     padding: 8px;
-    width: 265px;
+    width: 168px;
     top: 30px; 
     left: -150px;
     font-family: 'Quantico', sans-serif;
+}
+
+#crystal {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    bottom: -120px;
+    right: 150px;
+    opacity: 0.8;
+}
+
+#fund {
+    position: absolute;
+    padding: 8px;
+    width: 100px;
+    height: 39.2px;
+    top: 30px;
+    left: 40px;
+    font-family: 'Quantico', sans-serif;
+    background-color: rgb(183, 240, 84);
+    border-color: transparent;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out, 
+    opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+#fund:hover {
+    opacity: 0.75;
 }

@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const connectButton = document.getElementById("connectButton")
 const fundButton = document.getElementById("fundButton")
 const popupClose = document.getElementById("popup-close")
-const popupContainer = document.getElementById("popup-container")
+const popupContainer = document.getElementById("popup-con")
 const overlay = document.getElementById("overlay")
 
 // const balanceButton = document.getElementById("balanceButton")
