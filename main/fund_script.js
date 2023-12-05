@@ -108,7 +108,7 @@ async function updateParticipants() {
             const signer = await provider.getSigner()
             const contract = new ethers.Contract(contractAddress, abi, signer)
             const count = await contract.getFundcount()
-            const formattedCount = ethers.formatEther(count)
+            const formattedCount = parseInt(ethers.formatEther(count), 10)
 
             document.getElementById("fundersAmount").textContent =
                 formattedCount
