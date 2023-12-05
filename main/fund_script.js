@@ -56,7 +56,11 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 })
 
-const connectButton = document.getElementById("connectButton")
+// const connectButton = document.getElementById("connectButton")
+const account_section = document.getElementById("account")
+const account_option = document.getElementById("acc-opt")
+const acc_close = document.getElementById("acc-close")
+
 const fundButton = document.getElementById("fundButton")
 const Fund = document.getElementById("fund")
 
@@ -69,7 +73,8 @@ const overlay = document.getElementById("overlay")
 // const getOwnerButton = document.getElementById("getOwnerButton")
 // const getFunderButton = document.getElementById("getFunderButton")
 
-connectButton.onclick = connect
+// connectButton.onclick = connect
+
 Fund.onclick = fund
 // balanceButton.onclick = getBalance
 // withdrawButton.onclick = withdraw
@@ -159,6 +164,16 @@ function listenForTransactionMine(transactionResponse, provider) {
         })
     })
 }
+
+account_section.addEventListener("click", function () {
+    overlay.style.display = "block"
+    account_option.style.display = "block"
+})
+
+acc_close.addEventListener("click", function () {
+    overlay.style.display = "none"
+    account_option.style.display = "none"
+})
 
 // async function withdraw() {
 //     if (typeof window.ethereum != "undefined") {
