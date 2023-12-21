@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 })
 
-// const connectButton = document.getElementById("connectButton")
+const connectButton = document.getElementById("connectButton")
 const account_section = document.getElementById("account")
 const account_option = document.getElementById("acc-opt")
 const acc_close = document.getElementById("acc-close")
@@ -73,8 +73,7 @@ const overlay = document.getElementById("overlay")
 // const getOwnerButton = document.getElementById("getOwnerButton")
 // const getFunderButton = document.getElementById("getFunderButton")
 
-// connectButton.onclick = connect
-
+connectButton.onclick = connect
 Fund.onclick = fund
 // balanceButton.onclick = getBalance
 // withdrawButton.onclick = withdraw
@@ -85,6 +84,7 @@ async function connect() {
     if (typeof window.ethereum !== "undefined") {
         await window.ethereum.request({ method: "eth_requestAccounts" })
         console.log("Connected")
+        alert("Connected")
     } else {
         console.log("Please install metamask!")
     }
@@ -173,6 +173,14 @@ account_section.addEventListener("click", function () {
 acc_close.addEventListener("click", function () {
     overlay.style.display = "none"
     account_option.style.display = "none"
+})
+
+document.getElementById("eth-input").addEventListener("input", function () {
+    if (this.value.trim() !== "") {
+        this.classList.add("has-value")
+    } else {
+        this.classList.remove("has-value")
+    }
 })
 
 // async function withdraw() {

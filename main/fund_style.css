@@ -351,7 +351,8 @@ main{
 .eth-in:focus {
     border: 1px solid var(--primary);
 }
-.eth-in:focus ~ .label{
+.eth-in:focus ~ .label, 
+.eth-in.has-value ~ .label{
     transform: translateY(-90%) translateX(-10%) scale(0.7);
     background-color: #ffffff;
     padding-inline: 0.3rem;
@@ -402,6 +403,14 @@ main{
     z-index: 902;
     position: relative;
     overflow: hidden;
+}
+
+#top-popup-decor{
+    position: absolute;
+    left: 2px;
+    top: -10px;
+    height: 115px;
+    width: 345px;
 }
 
 .acc-compartment{
