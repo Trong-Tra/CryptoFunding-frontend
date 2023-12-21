@@ -127,8 +127,6 @@ document
         if (lock == true) {
             window.location.href = "./main/fund.html"
         } else {
-            alert(
-                "Please connect your account before getting started. \nTo connect, select account in the menu."
-            )
+            alert("Please connect your account before getting started.")
         }
     })

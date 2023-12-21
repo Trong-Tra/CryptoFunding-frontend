@@ -17,7 +17,15 @@
             </ul>
         </div>
         <div class="account-section" id="acc-opt">
-            <span id="acc-close">&times;</span>
+            <div class="acc-compartment">
+                <ul>
+                    <li>Connect</li>
+                    <li>Withdraw</li>
+                    <li>Get Owner</li>
+                    <li>Get Funder</li>
+                    <li id="acc-close">Close</li>
+                </ul>
+            </div>
         </div>
 
         <div class="title">
@@ -53,7 +61,12 @@
             <div class="group">
                 <img id="crystal" src="../Assets/ether-crystal.png">
                 <p>Your support is instrumental in bringing this project to fruition, and it truly means the world to us</p>
-                <input type="number" id="eth-input" name="numericInput" pattern="[0-9]" inputmode="numeric" placeholder="Enter amount">
+                <div class="eth-in-group">
+                    <input class="eth-in"  id="eth-input" 
+                    type="number" name="numericInput" 
+                    pattern="[0-9]" inputmode="numeric">
+                    <label class="label" for="eth-input">Enter Amount</label>
+                </div>
                 <button id="fund">Fund</button>
             </div>
         </div>

@@ -301,7 +301,7 @@ main{
     height: 10px;
     width: 265px;
     bottom: 50px;
-    left: -150px;
+    left: -165px;
 }
 
 #popup-close {
@@ -322,13 +322,40 @@ main{
     z-index: 900; 
 }
 
-#eth-input {
+.eth-in-group {
     position: absolute;
-    padding: 8px;
     width: 168px;
     top: 30px; 
-    left: -150px;
+    left: -165px;
     font-family: 'Quantico', sans-serif;
+    --primary: #000000;
+}
+.eth-in {
+    all: unset;
+    color: #000000;
+    width: 168px;
+    height: 8px;
+    padding: 1rem;
+    border: 1px solid #545454;
+    border-radius: 10px;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.label {
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+    color: #757575;
+    pointer-events: none;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.eth-in:focus {
+    border: 1px solid var(--primary);
+}
+.eth-in:focus ~ .label{
+    transform: translateY(-90%) translateX(-10%) scale(0.7);
+    background-color: #ffffff;
+    padding-inline: 0.3rem;
+    color: var(--primary);
 }
 
 #crystal {
@@ -344,11 +371,12 @@ main{
     position: absolute;
     padding: 8px;
     width: 100px;
-    height: 39.2px;
+    height: 41px;
     top: 30px;
     left: 40px;
     font-family: 'Quantico', sans-serif;
     background-color: rgb(183, 240, 84);
+    border-radius: 10px;
     border-color: transparent;
     cursor: pointer;
     transition: box-shadow 0.3s ease-in-out, 
@@ -358,25 +386,53 @@ main{
     opacity: 0.75;
 }
 
-
+/* Account tab */
 .account-section {
     display: none;
     position: fixed;
-    top: -150px;
-    left: 300px;
+    top: 140px;
+    left: 200px;
     font-family: 'Quantico', sans-serif;
+    font-size: 23px;
     transform: translate(-50%, -50%);
-    height: 215px;
-    width: 550px;
+    height: 500px;
+    width: 350px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 902;
     position: relative;
+    overflow: hidden;
 }
 
-#acc-close {
+.acc-compartment{
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 45px;
+    left: 65px;
+}
+
+.account-section ul {
+    list-style-type: none;
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.account-section li {
+    box-sizing: border-box;
+    display: flex;
+    flex: 2;
+    padding: 20px;
+    border: none; 
+    text-align: center;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    transition: ease-in-out 0.2s;
+}
+
+.account-section li:hover{
+    transform: scale(1.2);
 }
