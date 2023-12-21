@@ -56,7 +56,6 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 })
 
-const connectButton = document.getElementById("connectButton")
 const account_section = document.getElementById("account")
 const account_option = document.getElementById("acc-opt")
 const acc_close = document.getElementById("acc-close")
@@ -68,16 +67,16 @@ const popupClose = document.getElementById("popup-close")
 const popupContainer = document.getElementById("popup-con")
 const overlay = document.getElementById("overlay")
 
-// const balanceButton = document.getElementById("balanceButton")
-// const withdrawButton = document.getElementById("withdrawButton")
-// const getOwnerButton = document.getElementById("getOwnerButton")
+const connectButton = document.getElementById("connectButton")
+const withdrawButton = document.getElementById("withdrawButton")
+const getOwnerButton = document.getElementById("getOwnerButton")
 // const getFunderButton = document.getElementById("getFunderButton")
 
 connectButton.onclick = connect
 Fund.onclick = fund
-// balanceButton.onclick = getBalance
-// withdrawButton.onclick = withdraw
-// getOwnerButton.onclick = getOwner
+
+withdrawButton.onclick = withdraw
+getOwnerButton.onclick = getOwner
 // getFunderButton.onclick = trackFunder
 
 async function connect() {
@@ -183,41 +182,47 @@ document.getElementById("eth-input").addEventListener("input", function () {
     }
 })
 
-// async function withdraw() {
-//     if (typeof window.ethereum != "undefined") {
-//         console.log("Withdrawing...")
-//         const provider = new ethers.BrowserProvider(window.ethereum)
-//         const signer = await provider.getSigner()
-//         const contract = new ethers.Contract(contractAddress, abi, signer)
-//         try {
-//             const transactionResponse = await contract.withdraw()
-//             await listenForTransactionMine(transactionResponse, provider)
-//             showMessages(["Withdrawing...", "Completed"])
-//         } catch (error) {
-//             console.log(error)
-//         }
-//     }
-// }
+async function withdraw() {
+    if (typeof window.ethereum != "undefined") {
+        console.log("Withdrawing...")
+        const provider = new ethers.BrowserProvider(window.ethereum)
+        const signer = await provider.getSigner()
+        const contract = new ethers.Contract(contractAddress, abi, signer)
+        alert(
+            `Withdraw ${
+                document.getElementById("balanceValue").textContent
+            } ETH from ${
+                document.getElementById("fundersAmount").textContent
+            } participants`
+        )
+        try {
+            const transactionResponse = await contract.withdraw()
+            await listenForTransactionMine(transactionResponse, provider)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
 
-// async function getOwner() {
-//     let ownerAddress = null
-//     try {
-//         const provider = new ethers.BrowserProvider(window.ethereum)
-//         const signer = await provider.getSigner()
-//         const contract = new ethers.Contract(contractAddress, abi, signer)
-//         ownerAddress = await contract.getOwner()
-//         console.log(`Owner is... ${ownerAddress}`)
-//         showMessage("Please check your website console")
-//     } catch (err) {
-//         console.log(err)
-//     }
-// }
+async function getOwner() {
+    let ownerAddress = null
+    try {
+        const provider = new ethers.BrowserProvider(window.ethereum)
+        const signer = await provider.getSigner()
+        const contract = new ethers.Contract(contractAddress, abi, signer)
+        ownerAddress = await contract.getOwner()
+        console.log(`Owner is... ${ownerAddress}`)
+        alert(`Owner is... ${ownerAddress}`)
+    } catch (err) {
+        console.log(err)
+    }
+}
 
 // async function trackFunder() {
 //     const funderIndex = document.getElementById("funderIndex").value
 //     const funderAddress = await getFunder(funderIndex)
 //     console.log(`Funder's address: ${funderAddress}`)
-//     showMessage("Please check your website console")
+//     alert(`Funder's address: ${funderAddress}`)
 // }
 
 // async function getFunder(funderIndex) {
