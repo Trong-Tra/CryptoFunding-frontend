@@ -12,6 +12,8 @@ A basic crowd funding smart contract
 -   With CryptoFunding, contributors will become a part of the contract network when they fund it.
 -   Withdrawing in CryptoFunding is only available to the owner of the contract.
 
+Note: This repo is an application interface for the project. To use the project, visit the [backend repository](https://github.com/Trong-Tra/CryptoFunding.git)
+
 ### Built with
 
 <div align="center">
@@ -23,28 +25,26 @@ CryptoFunding is open-source licensed under the MIT License
 
 ## Getting Started
 
-To get started with CryptoFunding, follow these steps:
+To get started with CryptoFunding:
 
-### Using the contract
+1. Clone the [backend repository](https://github.com/Trong-Tra/CryptoFunding.git).
 
-1. Go to the backend repository: "https://github.com/AgonyThorn/CryptoFunding.git"
+2. Install node if you haven't (using along with yarn if it comfortable with you).
 
-2. Deploy the Smart Contract: Deploy the CryptoFunding smart contract on your chosen Ethereum network.
+3. Either clone this repo or using it on your own application with the abi from the backend repo
 
-### Checking out the dApp
+4. Deploy network for the contract in the backend and change it with the current "contractAddress" in constant.js (if you have any change made in the backend please compile it and update the abi of the frontend).
 
-1. Go to the backend repository: "https://github.com/AgonyThorn/CryptoFunding.git"
+5. Before putting it to use, start a local server to test some of the feature first using some decoy account (recommend importting to a metamask without any actual currency).
 
-2. Install node (using along with yarn if it comfortable with you)
-
-3. Deploy network for the contract in the backend and change it with the current "contractAddress" in constant.js
-
-4. Import one of the decoy account into your metamask (recommend using a metamask without any actual currency)
-
-5. Either clone this repo and run it yourself or click this: https://agonythorn.github.io/CryptoFunding-frontend/
+6. If you appreciate the design of my application, feel free to clone this repository and experience it firsthand.
 
 ## Security Considerations
 
 -   Ensure that you deploy the contract on a secure Ethereum network.
 -   Review and test the contract thoroughly to identify and mitigate potential security risks.
 <hr>
+
+## Credits
+
+-   Check out [Howard_Le](https://www.instagram.com/uxui_howard.le?utm_source=ig_web_button_share_sheet&igsh=OGQ5ZDc2ODk2ZA==) for his amazing ux-ui assets
