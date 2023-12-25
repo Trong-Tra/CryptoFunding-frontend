@@ -51,5 +51,6 @@ To get started with CryptoFunding:
 
 <hr>
 Last updated: 12/25/2023
-- Contract is fully tested
-- Get_funder is usable just "uncomment" it, but the current application doesn't upddate it feature
+
+-   Contract is fully tested
+-   Get_funder is usable just "uncomment" it, but the current application doesn't upddate it feature
