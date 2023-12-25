@@ -47,4 +47,9 @@ To get started with CryptoFunding:
 
 ## Credits
 
--   Check out [Howard_Le](https://www.instagram.com/uxui_howard.le?utm_source=ig_web_button_share_sheet&igsh=OGQ5ZDc2ODk2ZA==) for his amazing ux-ui assets
+-   Check out [Howard_Le](https://www.instagram.com/uxui_howard.le?utm_source=ig_web_button_share_sheet&igsh=OGQ5ZDc2ODk2ZA==) for his amazing ux-ui assets.
+
+<hr>
+Last updated: 12/25/2023
+- Contract is fully tested
+- Get_funder is usable just "uncomment" it, but the current application doesn't upddate it feature
